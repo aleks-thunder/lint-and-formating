@@ -134,4 +134,4 @@ Use Conventional Commits:
 
 - **No release created**: commit is not releasable (`feat`/`fix`/`feat()!`).
 - **Wrong package released**: check `Detect changed packages (native git)` step outputs (`base/angular/react=true|false`) in workflow logs.
-- **Auth/publish errors**: confirm token permissions and scope mapping in `.npmrc`.
+- **Auth/publish errors**: add repository secret **`NPM_TOKEN`** (classic PAT from the package owner with `read:packages` + `write:packages`, SSO authorized if needed). Workflows set `NPM_TOKEN` / `NODE_AUTH_TOKEN` from it; `.npmrc` uses `${NPM_TOKEN}` for `npm.pkg.github.com`. For local `npm install`, export `NPM_TOKEN` the same way.
