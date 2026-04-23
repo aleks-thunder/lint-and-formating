@@ -44,6 +44,22 @@ jobs:
           scope: "@aleks-thunder"
           cache: npm
 
+      - name: Require NPM_TOKEN for GitHub Packages
+        shell: bash
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "${NPM_TOKEN}" ]; then
+            echo "::error::Repository secret NPM_TOKEN is missing or empty (PAT: read:packages + write:packages for @aleks-thunder)."
+            exit 1
+          fi
+
+      - name: Configure npm auth for GitHub Packages
+        shell: bash
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm config set //npm.pkg.github.com/:_authToken "${NPM_TOKEN}"
+
       - name: Install dependencies
         run: npm install
 
