@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/aleks-thunder/lint-and-formating/compare/base-v1.0.0...base-v1.0.1) (2026-04-24)
+
+
+### Bug Fixes
+
+* **test:** release ([00be218](https://github.com/aleks-thunder/lint-and-formating/commit/00be218cef2a38ea904f00bae1c4712b98d8a8e4))
+
 # 1.0.0 (2026-04-24)
 
 
